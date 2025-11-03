@@ -9,14 +9,14 @@ import io.qameta.allure.selenide.AllureSelenide;
 import static com.codeborne.selenide.CollectionCondition.anyMatch;
 import static com.codeborne.selenide.Selenide.*;
 
-public class SeleinideTest {
+public class SeleinideTest extends TestBase{
 
     @Test
     @Owner("Tatiana")
     @Severity(SeverityLevel.BLOCKER)
     void simpleSeleinideTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
-        open("https://github.com/tandr24/qa_guru_8_allure");
+        open("/tandr24/qa_guru_8_allure");
         $("#issues-tab").click();
         $$("[data-testid=issue-pr-title-link]").shouldHave(anyMatch(
                 "element exist",
